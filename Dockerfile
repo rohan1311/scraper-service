@@ -11,6 +11,7 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -y \
     chromium-driver \
+    chromium \
     libglib2.0-0 \
     libnss3 \
     libx11-xcb1 \
@@ -39,7 +40,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire scraper directory into the container
-COPY ..
+COPY . /app
+
+RUN chmod +x /usr/bin/chromium
 
 # Set the default command to run the Python script
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5050"]

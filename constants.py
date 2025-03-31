@@ -17,6 +17,9 @@ FAR_HOLDING_EMAIL_TEXT = "The difference in cumalative values is "
 T1_TRADE_URL = "https://old.ccilindia.com/OMRPTDeals.aspx"
 T1_UNCONFIRMED_DEAL_URL = "https://old.ccilindia.com/OMRPT_UNDRCT.aspx"
 
+# Auction constants
+GOVT_AUCTION_RESULTS_EMAIL_SUBJECT = 'Government Stock - Auction Results: Cut-off'
+GOVT_AUCTION_RESULTS_EMAIL_TEXT = 'Government Stock - Auction Results: Cut-off'
 
 # Commons constants
 T2_TRADE_NAME_DYNAMO = 't+2 trade'
@@ -25,7 +28,8 @@ T1_T2_TRADE_NAME_DYNAMO_TEST = 't+1 t+2 trade test'
 SES_REGION = 'ap-southeast-2'
 T1_T2_DEALS_EMAIL_SUBJECT = "FPI Trades"
 SENDER = 'info@innovercapital.com'
-TEST_RECIPIENT = ['shubhi.moti@gmail.com', 'pathak.maneesh@gmail.com', 'rishi.bansal@innovercapital.com', 'vanita.tiwari@innovercapital.com']
+TEST_RECIPIENT = ['shubhi.moti@gmail.com']
+# 'pathak.maneesh@gmail.com', 'rishi.bansal@innovercapital.com', 'vanita.tiwari@innovercapital.com']
 RECIPIENTS = ['rishi.bansal@innovercapital.com', 'vanita.tiwari@innovercapital.com', 'shubhi.moti@gmail.com',
 'maneesh.pathak@morganstanley.com', 'ritesh_lunawat@icicipruamc.com', 'ardhendu.bhattacharya@sbimf.com', 'hardik10.shah@axismf.com',
 'kaushal.singh1@morganstanley.com', 'rupak.jain@morganstanley.com', 'rahul.goswami@franklintempleton.com', 'naveen.sharma2@nomura.com',

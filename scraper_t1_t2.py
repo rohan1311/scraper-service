@@ -1,3 +1,4 @@
+import os
 import asyncio
 import json
 import time
@@ -150,7 +151,7 @@ async def scrape_table(browser, table):
 async def compute_t1_t2():
     start_time = time.time()
     today = datetime.strftime(datetime.now(), '%d-%b-%Y')
-    browser = await launch(headless=True, args=['--no-sandbox'])
+    browser = await launch(headless=False, args=['--no-sandbox'], executablePath=os.getenv('PUPPETEER_EXECUTABLE_PATH'))
     tables = [
         {'deal_type': 't+1', 'lot_type': 'standard', 'status': 'unconfirmed',
          'table_url': 'https://r.ccilindia.com/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&ParentFolderUri=%2Freports%2FBondMarket%2FNDS_OM&reportUnit=%2Freports%2FBondMarket%2FNDS_OM%2Fndsom_unstandard_odd_lot_t1_03&standAlone=true&pp=vkGhz3w3Gx6JFbnxyIcJaTL/9OiYvXo0NzCLp2C6MIn4Mx7Aub2QdLnVNJBvybJ9&decorate=no'},
@@ -180,7 +181,7 @@ async def compute_t1_t2():
     current_total = Decimal(str(current_total))
     print(f'current total: {current_total} and final results: {final_results}')
     await browser.close()
-    update_t1_unconfirmed(today, security_map)
+    # update_t1_unconfirmed(today, security_map)
     final_list_of_deals = sorted(final_results, key=lambda x: x[2])
 
     pretty_table = PrettyTable(
@@ -205,13 +206,13 @@ async def compute_t1_t2():
                     """
     prev_total = get_previous_total(constants.T1_T2_TRADE_NAME_DYNAMO)
     diff = current_total - prev_total
-    if diff >= 100:
-        send_email(constants.T1_T2_DEALS_EMAIL_SUBJECT, constants.TEST_RECIPIENT, html_body, "html", "", "")
-        update_previous_total(constants.T1_T2_TRADE_NAME_DYNAMO, current_total)
+    # if diff >= 100:
+    #     send_email(constants.T1_T2_DEALS_EMAIL_SUBJECT, constants.TEST_RECIPIENT, html_body, "html", "", "")
+    #     update_previous_total(constants.T1_T2_TRADE_NAME_DYNAMO, current_total)
     end_time = time.time()
     elapsed_time = end_time - start_time
     print(f'Time taken: {elapsed_time:.2f} seconds')
 
 
-# if __name__ == "__main__":
-#     asyncio.run(compute_t1_t2())
+if __name__ == "__main__":
+    asyncio.run(compute_t1_t2())

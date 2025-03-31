@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from scraper_t1_t2 import compute_t1_t2
+from scraper_fpi import compute_fpi
 
 app = FastAPI()
 
@@ -12,6 +13,14 @@ async def run_scrape():
     except Exception as e:
         return {"error": str(e)}
 
+
+@app.post("/scrape_fpi")
+async def run_scrape(yesterday: str = Query()):
+    try:
+        await compute_fpi(yesterday)
+        return {"message": "Scraping task completed"}
+    except Exception as e:
+        return {"error": str(e)}
 
 if __name__ == "__main__":
     import uvicorn

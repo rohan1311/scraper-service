@@ -6,11 +6,27 @@ from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 
 
+def get_verified_identities():
+    client = boto3.client(
+        'ses',
+        aws_access_key_id='AKIATCKASWVWAQETYRGY',
+        aws_secret_access_key='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',
+        # aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+        # aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+        region_name=constants.SES_REGION
+    )
+    # pagination at 1000
+    verified_identities = client.list_identities(IdentityType='EmailAddress')
+    return verified_identities['Identities']
+
+
 def send_email(subject, recipient, body, body_type, attachment_path, attachment_name):
     client = boto3.client(
         'ses',
-        aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-        aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+        aws_access_key_id='AKIATCKASWVWAQETYRGY',
+        aws_secret_access_key='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',
+        # aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+        # aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
         region_name=constants.SES_REGION
     )
 

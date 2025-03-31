@@ -3,8 +3,8 @@ import os
 
 dynamodb = boto3.resource(
         'dynamodb',
-        aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-        aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+        aws_access_key_id='AKIATCKASWVWAQETYRGY',
+        aws_secret_access_key='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',
         region_name='ap-southeast-2'
     )
 table = dynamodb.Table('trade_data')
