@@ -27,12 +27,6 @@ T1_T2_TRADE_NAME_DYNAMO = 't+1 t+2 trade'
 T1_T2_TRADE_NAME_DYNAMO_TEST = 't+1 t+2 trade test'
 SES_REGION = 'ap-southeast-2'
 T1_T2_DEALS_EMAIL_SUBJECT = "FPI Trades"
-SENDER = 'info@innovercapital.com'
-TEST_RECIPIENT = ['shubhi.moti@gmail.com']
-# 'pathak.maneesh@gmail.com', 'rishi.bansal@innovercapital.com', 'vanita.tiwari@innovercapital.com']
-RECIPIENTS = ['rishi.bansal@innovercapital.com', 'vanita.tiwari@innovercapital.com', 'shubhi.moti@gmail.com',
-'maneesh.pathak@morganstanley.com', 'ritesh_lunawat@icicipruamc.com', 'ardhendu.bhattacharya@sbimf.com', 'hardik10.shah@axismf.com',
-'kaushal.singh1@morganstanley.com', 'rupak.jain@morganstanley.com', 'rahul.goswami@franklintempleton.com', 'naveen.sharma2@nomura.com',
-'vivek.r.sharma@nipponindiaim.com', 'bhavin.savla@barclays.com', 'aditigya.singh@barclays.com', 'dhawal.kumar@bofa.com',
-'vikas.jain@bofa.com', 'gaurav.teltia@bofa.com', 'ashish.khajuria@pnb.co.in', 'ankit.chaudhary2@pnb.co.in', 'babuli@pnb.co.in',
-'ramanaiah.sangana@pnb.co.in', 'naresh.kumar14@maxlifeinsurance.com', 'pankaj.agarwal@tataaia.com']
+SENDER = 'info@domain.com'
+TEST_RECIPIENT = ['']
+RECIPIENTS = ['']
